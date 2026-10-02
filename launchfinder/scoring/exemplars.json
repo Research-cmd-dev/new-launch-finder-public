@@ -1,0 +1,129 @@
+{
+  "purpose": "First-book north stars for scoring loops. Not training labels. Do not rewrite Decision rows. FEATURE_NAMES stays 66.",
+  "do_not": [
+    "Do not treat the Sep 15 leftover PONS Decision (entry 0.2167 at $410M) as a win.",
+    "Do not leftover-sort or raise PONS-named / old-major scores.",
+    "Do not lower LEDGER_SELLABLE_LIQ or paper hi from one historical tape.",
+    "Do not treat a 1y winner shopping list as alpha — only first-print features are extractable."
+  ],
+  "incredible": [],
+  "alpha_extract": [
+    "First-sight / entry Decision features only — never peak multiple as a feature.",
+    "Compare tag rates (github / dev / cto / meme) on winners vs same-window misses.",
+    "Entry calibration: did high entry_p clear 5× more often on the same day?",
+    "Survivorship without losers invents edge — pair every winner with that day's misses.",
+    "PONS-shape gate: entry mcap < $100k + hot vol/open + rising unique buyers; leftover mcap ≥ $1M is not zero-hour.",
+    "Sol Helius first-hour: dense unique buyers (≥~100) with top10_token_share ≲ 0.4; reject high concentration + thin buyers.",
+    "Bitquery archive add-on unlocks trade-level 0–24h for year runners; current token is realtime-only (~hours)."
+  ],
+  "historical": [
+    {
+      "id": "pons-first-day",
+      "symbol": "PONS",
+      "name": "Pons",
+      "mint": "0x39dbed3a2bd333467115de45665cc57f813c4571",
+      "chain": "robinhood",
+      "kind": "historical_first_day",
+      "caught_by_desk": false,
+      "why": "Pad token. Pair opened 2026-07-13 20:42Z. We ingested it 63 days later at $410M and stamped legacy 22 — leftover, labeled a 24h loss. The first-day tape is the example, not that stamp.",
+      "pair_opened_at": "2026-07-13T20:42:21+00:00",
+      "pair": "0x10cc6bd38112cac182db90b6a71d8bb5939526ba",
+      "supply": 1000000000,
+      "source": "gmgn_kline_1d",
+      "first_day": {
+        "date": "2026-07-13",
+        "fdv_open": 2574,
+        "fdv_high": 307572,
+        "fdv_close": 272039,
+        "multiple_close": 105.7,
+        "multiple_high": 119.5,
+        "volume_usd": 564883,
+        "vol_over_open_fdv": 219.4
+      },
+      "milestones": {
+        "day2_high_fdv": 8224531,
+        "day2_close_fdv": 4736142,
+        "week1_high_fdv": 45899070,
+        "first_100m_high": "2026-08-25",
+        "first_400m_high": "2026-08-30",
+        "ath_high_fdv": 990116930,
+        "ath_date": "2026-09-05",
+        "multiple_open_to_ath": 384639
+      },
+      "follow": [
+        "First book was ~$2.6k FDV, not $410M.",
+        "Day-1 close held 106× (not a two-tick wick).",
+        "Day-1 USD volume was ~220× the open FDV.",
+        "Day 2 ran again (~17× from the day-1 close) — Live would have had to stay on it.",
+        "Catch means seeing that $2.6k print, not scoring the leftover."
+      ]
+    }
+  ],
+  "desk_caught": [
+    {
+      "id": "dex",
+      "symbol": "DEX",
+      "mint": "FzEh8uAxjUWRgGhzb4TGGBBsKUzsZn8zoSoZGmEppump",
+      "chain": "sol",
+      "kind": "paper_fill",
+      "caught_by_desk": true,
+      "entry_p": 0.1465,
+      "entry_mcap": 102344,
+      "peak_multiple": 8.77,
+      "return_pct": 135.2,
+      "exit": "live dump"
+    },
+    {
+      "id": "meimei",
+      "symbol": "MeiMei",
+      "mint": "CWaGFU2xboUfSx3TN7WytRcHKvccFjvqPPK9LWWwpump",
+      "chain": "sol",
+      "kind": "paper_fill",
+      "caught_by_desk": true,
+      "entry_p": 0.1465,
+      "entry_mcap": 35839,
+      "peak_multiple": 9.47,
+      "return_pct": 132.6,
+      "exit": "live dump"
+    },
+    {
+      "id": "poof",
+      "symbol": "POOF",
+      "mint": "0x1615c7761f08be4b52db72ca461a24ac268a2415",
+      "chain": "robinhood",
+      "kind": "paper_fill",
+      "caught_by_desk": true,
+      "entry_p": 0.4868,
+      "entry_mcap": 64857,
+      "peak_multiple": 5.72,
+      "return_pct": 116.8,
+      "exit": "live dump"
+    },
+    {
+      "id": "ppaid",
+      "symbol": "PPAID",
+      "mint": "BwNqazKRSn8hTzMJNFsX8vV2kvSu8XNHXk2SqWH2pump",
+      "chain": "sol",
+      "kind": "paper_fill",
+      "caught_by_desk": true,
+      "entry_p": 0.1465,
+      "entry_mcap": 44291,
+      "peak_multiple": 3.48,
+      "return_pct": 86.5,
+      "exit": "live dump"
+    },
+    {
+      "id": "sponk",
+      "symbol": "SPONK",
+      "mint": "5hmWwRNw66m1YtQKbnFvfSerhkgD3pdmuQ4JZywepump",
+      "chain": "sol",
+      "kind": "paper_fill",
+      "caught_by_desk": true,
+      "entry_p": 0.1465,
+      "entry_mcap": 62051,
+      "peak_multiple": 2.45,
+      "return_pct": 60.7,
+      "exit": "live dump"
+    }
+  ]
+}

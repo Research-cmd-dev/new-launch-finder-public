@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en" data-chain="robinhood">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Launch Finder · Oversight · Robinhood</title>
+  <link rel="preconnect" href="https://dexscreener.com" />
+  <link rel="dns-prefetch" href="https://dexscreener.com" />
+  <link rel="stylesheet" href="/static/desk.css?v=stack-v207" />
+</head>
+<body>
+  <header class="desk-top">
+    <div class="brand">
+      <div class="mark" aria-hidden="true">LF</div>
+      <div class="brand-text">
+        <p class="eyebrow">Paper · 1–5 / day · learn loop</p>
+        <strong>Launch Finder</strong>
+      </div>
+    </div>
+    <nav class="seg" aria-label="Chain dashboards">
+      <a href="/">Solana</a>
+      <a href="/rh" class="on" aria-current="page">Robinhood</a>
+    </nav>
+    <div class="metrics" id="metrics"></div>
+    <div class="status-wrap">
+      <span class="wire" id="wire" hidden title="Telegram is off. Set TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID on Railway — do not paste them here.">pings off</span>
+      <div class="status" id="status">
+        <span class="dot"></span>
+        <span id="status-text">loading…</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="desk-tools">
+    <nav class="seg desk-tabs" aria-label="Desk views">
+      <button type="button" class="on" data-desk="picks">Picks</button>
+      <button type="button" data-desk="learn">Learn</button>
+      <button type="button" data-desk="live">Hunt</button>
+      <button type="button" data-desk="fomo">FOMO</button>
+      <button type="button" data-desk="board">Calibrate</button>
+    </nav>
+    <input class="search" id="search" type="search" placeholder="Search ticker, name, or mint" autocomplete="off" />
+    <label class="check"><input type="checkbox" id="live-only" checked /> This window</label>
+    <label class="range">Min
+      <input type="range" id="min-score" min="0" max="80" value="0" />
+      <b id="min-score-label">0%</b>
+    </label>
+    <select id="sort" aria-label="Sort tape">
+      <option value="newest">Newest</option>
+      <option value="score">Live</option>
+      <option value="entry">Entry</option>
+      <option value="mcap">Mcap</option>
+      <option value="multiple">Multiple</option>
+      <option value="thesis">Thesis</option>
+    </select>
+    <button type="button" id="scan">Scan</button>
+    <span class="hint" id="desk-meta"></span>
+  </div>
+
+  <main class="desk-grid">
+    <section class="tape" aria-label="Token tape">
+      <div class="tape-head">
+        <span>Token</span>
+        <span>Age</span>
+        <span>Mcap</span>
+        <span>×</span>
+        <span title="Frozen score at first sight. Paper and training read this.">Entry</span>
+        <span title="Derived from the live tape. Moves every minute. Not a fill.">Live</span>
+      </div>
+      <div class="tape-rows" id="rows"></div>
+    </section>
+
+    <section class="chart-col" aria-label="Charts">
+      <div class="chart-head">
+        <div id="chart-head">
+          <p class="muted">Select a name on the tape.</p>
+        </div>
+      </div>
+      <div class="tape-strip" id="tape-strip" hidden></div>
+      <div class="chart-stage">
+        <div id="pair-host" class="chart-pane on">
+          <div class="pair-skel" id="pair-skel" aria-hidden="true"></div>
+          <div class="chart-fallback muted" id="pair-fallback">Pair embed can hang on Dex. <a id="pair-dex" href="#" target="_blank" rel="noreferrer">Open DexScreener</a></div>
+        </div>
+        <div id="board-pane" class="chart-pane board-pane"></div>
+        <div id="learn-pane" class="chart-pane board-pane learn-pane"></div>
+        <div id="fomo-pane" class="chart-pane board-pane fomo-pane"></div>
+      </div>
+    </section>
+
+    <aside class="stats" id="detail">
+      <p class="muted">Select a token for the research card.</p>
+    </aside>
+  </main>
+
+  <script src="/static/desk.js?v=stack-v207"></script>
+</body>
+</html>

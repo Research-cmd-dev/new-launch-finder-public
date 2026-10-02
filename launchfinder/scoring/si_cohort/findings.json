@@ -1,0 +1,1005 @@
+{
+  "study": "si-meme-copy-printer-vs-dud",
+  "at": "2026-10-01T12:50:56.222720+00:00",
+  "paper_safe": true,
+  "n_printers": 2,
+  "n_duds": 22,
+  "n_adjacent_printers": 1,
+  "n_unknown": 2,
+  "serial_policy": "PRIOR only \u2014 never hard-block. Super Intelligence 33 launches / 4 wins / 21 rugs AND ~80x.",
+  "data_caveats": [
+    "Super Inu (DEW9\u2026) FOMO first-sight already ~$1.7M / $2.1M vol_h1; labeled t15m snap is +47h (ignored). No true first-15m post-migrate tape in DB.",
+    "Super Intelligence (9aqm\u2026) has honest t0\u2192early\u2192t15m trajectory \u2014 primary early-signal exemplar.",
+    "Stupid Inu (3VPo\u2026) is SI-ticker adjacent ~77x printer, not Dave Super* meme-copy pair; excluded from printer N.",
+    "Tiny N (2 printers / 22 duds). Effect sizes are descriptive only."
+  ],
+  "top3_separating_signals": [
+    {
+      "rank": 1,
+      "signal": "rising_book_15m (mcap+liq up in first ~15m) OR fomo_late_hot organic mega-book at first sight",
+      "why": "Both printers show either honest mcap_ratio>>1 with building liq (Super Intelligence 8.3x in ~9m) or already-organic hot book at FOMO catch (Super Inu). Duds median mcap_ratio ~0.16 (dump). Cliff \u03b4\u2248+0.9 on rising_book when defined.",
+      "decision_time": true
+    },
+    {
+      "rank": 2,
+      "signal": "top10_pct moderate (~25-35%) vs dud median ~90%+",
+      "why": "Printers top10 26% / 35%. Dud Super* clones often 85-100% concentrated. Counterexample: one Super Inu clone also has top10 23.5% + 2085 holders but dumps (t0 vol 0 \u2192 early dump) \u2014 holders alone insufficient.",
+      "decision_time": true
+    },
+    {
+      "rank": 3,
+      "signal": "volume WITH rising mcap (not dump-on-volume)",
+      "why": "Dave hunch partly confirmed: volume matters but directionally. Super Coin / Gigainu / slop inu show high early vol while mcap collapses (dump_on_volume=1). Super Intelligence early vol ~108k with mcap 14k\u2192119k. Serial Super Intelligence breaks its rug shape via rising book + top10 35%.",
+      "decision_time": true
+    }
+  ],
+  "non_separators_or_weak": [
+    "holder_count alone \u2014 Super Inu dud also has ~2085 holders at entry",
+    "fresh_wallet_pct \u2014 printers high (83-91%) but many duds also 100%",
+    "creator_serial / prior rugs \u2014 Super Intelligence is serial AND prints; do not hard-block",
+    "time_to_migrate_min \u2014 both fast and slow exist in duds; printers also fast",
+    "gate_veto labels \u2014 printers were copycat spam / start-high (same vetoes as many duds)",
+    "meme_quality score / social \u2014 both printers meme-only weak social"
+  ],
+  "volume_holder_verdict": "PARTIAL CONFIRM of Dave hunch. Sauce is volume+holder *shape*: rising mcap/liq with organic top10 in first minutes (or already-hot organic FOMO catch). Raw volume_h1 or raw holder_count without trajectory dumps false-positives.",
+  "serial_pattern_break_note": "For serial wallets, Learn probe should baseline that creator early 15m mcap/vol shape on prior rugs, then flag breaks (rising book + non-extreme top10). Super Intelligence serial_pattern_break=1. Dud serial Super Intelligence clone (9TrR\u2026) break=0 (top10 99.8%, dump).",
+  "not_safe_to_ship": [
+    "Opening paper fills on copycat or start-high vetoes",
+    "Inventing thesis tags for SI/Super*",
+    "Hard-blocking serial deployers",
+    "Lowering Hunt floors / any gate change from N=2",
+    "Origin tip deploy / IMAGE_REV change",
+    "Treating FOMO rank alone as entry signal"
+  ],
+  "optional_next_learn_probe": [
+    "Shadow-only feature: early_book_shape = {mcap_t0_to_15m_ratio, liq_build, dump_on_volume, top10_at_entry} logged for all SI/Super* + copycat-veto shadow names \u2014 no fills.",
+    "Per-creator rug-shape baseline: for wallets with \u22655 priors, store median early mcap_ratio of their rugs; score this-mint residual (break). Still Learn/shadow only.",
+    "Expand cohort historically beyond 2026-10-01 paper shadow day (need DB same-ticker search or archived FOMO dumps)."
+  ],
+  "comparisons": [
+    {
+      "feature": "mcap_t0_to_early_ratio",
+      "n_printer": 1,
+      "n_dud": 14,
+      "printer_median": 8.31148404301509,
+      "dud_median": 0.19468237482481834,
+      "cliffs_delta": 1.0,
+      "abs_delta": 1.0,
+      "printer_vals": [
+        8.31148404301509
+      ],
+      "dud_median_n": 14
+    },
+    {
+      "feature": "bar_mcap_15m_ratio",
+      "n_printer": 1,
+      "n_dud": 19,
+      "printer_median": 1.9885200845665962,
+      "dud_median": 0.04808793682052931,
+      "cliffs_delta": 1.0,
+      "abs_delta": 1.0,
+      "printer_vals": [
+        1.9885200845665962
+      ],
+      "dud_median_n": 19
+    },
+    {
+      "feature": "serial_pattern_break",
+      "n_printer": 1,
+      "n_dud": 5,
+      "printer_median": 1.0,
+      "dud_median": 0.0,
+      "cliffs_delta": 1.0,
+      "abs_delta": 1.0,
+      "printer_vals": [
+        1.0
+      ],
+      "dud_median_n": 5
+    },
+    {
+      "feature": "rising_book_15m",
+      "n_printer": 2,
+      "n_dud": 14,
+      "printer_median": 1.0,
+      "dud_median": 0.0,
+      "cliffs_delta": 0.9285714285714286,
+      "abs_delta": 0.9285714285714286,
+      "printer_vals": [
+        1.0,
+        1.0
+      ],
+      "dud_median_n": 14
+    },
+    {
+      "feature": "market_heat_n",
+      "n_printer": 2,
+      "n_dud": 22,
+      "printer_median": 0.7528042407893,
+      "dud_median": 0.47997583647997755,
+      "cliffs_delta": 0.8181818181818182,
+      "abs_delta": 0.8181818181818182,
+      "printer_vals": [
+        0.9049180327868853,
+        0.6006904487917146
+      ],
+      "dud_median_n": 22
+    },
+    {
+      "feature": "top10_pct",
+      "n_printer": 2,
+      "n_dud": 22,
+      "printer_median": 30.665,
+      "dud_median": 92.305,
+      "cliffs_delta": -0.7727272727272727,
+      "abs_delta": 0.7727272727272727,
+      "printer_vals": [
+        34.97,
+        26.36
+      ],
+      "dud_median_n": 22
+    },
+    {
+      "feature": "early_snap_mcap",
+      "n_printer": 1,
+      "n_dud": 14,
+      "printer_median": 118685.0,
+      "dud_median": 2919.5,
+      "cliffs_delta": 0.7142857142857143,
+      "abs_delta": 0.7142857142857143,
+      "printer_vals": [
+        118685.0
+      ],
+      "dud_median_n": 14
+    },
+    {
+      "feature": "early_snap_liq",
+      "n_printer": 1,
+      "n_dud": 14,
+      "printer_median": 29656.45,
+      "dud_median": 2904.485,
+      "cliffs_delta": 0.7142857142857143,
+      "abs_delta": 0.7142857142857143,
+      "printer_vals": [
+        29656.45
+      ],
+      "dud_median_n": 14
+    },
+    {
+      "feature": "t0_snap_vol_h1",
+      "n_printer": 2,
+      "n_dud": 22,
+      "printer_median": 1061991.46,
+      "dud_median": 1.8499999999999999,
+      "cliffs_delta": 0.6818181818181818,
+      "abs_delta": 0.6818181818181818,
+      "printer_vals": [
+        17116.36,
+        2106866.56
+      ],
+      "dud_median_n": 22
+    },
+    {
+      "feature": "top1_pct",
+      "n_printer": 2,
+      "n_dud": 22,
+      "printer_median": 13.344999999999999,
+      "dud_median": 36.144999999999996,
+      "cliffs_delta": -0.6818181818181818,
+      "abs_delta": 0.6818181818181818,
+      "printer_vals": [
+        21.09,
+        5.6
+      ],
+      "dud_median_n": 22
+    },
+    {
+      "feature": "dump_on_volume",
+      "n_printer": 2,
+      "n_dud": 14,
+      "printer_median": 0.0,
+      "dud_median": 0.5,
+      "cliffs_delta": -0.5,
+      "abs_delta": 0.5,
+      "printer_vals": [
+        0.0,
+        0.0
+      ],
+      "dud_median_n": 14
+    },
+    {
+      "feature": "fomo_late_hot",
+      "n_printer": 2,
+      "n_dud": 22,
+      "printer_median": 0.5,
+      "dud_median": 0.0,
+      "cliffs_delta": 0.5,
+      "abs_delta": 0.5,
+      "printer_vals": [
+        0.0,
+        1.0
+      ],
+      "dud_median_n": 22
+    },
+    {
+      "feature": "volume_n",
+      "n_printer": 2,
+      "n_dud": 22,
+      "printer_median": 0.9504635010812876,
+      "dud_median": 0.8034804478179456,
+      "cliffs_delta": 0.4772727272727273,
+      "abs_delta": 0.4772727272727273,
+      "printer_vals": [
+        0.9009270021625754,
+        1.0
+      ],
+      "dud_median_n": 22
+    },
+    {
+      "feature": "holder_n",
+      "n_printer": 2,
+      "n_dud": 22,
+      "printer_median": 0.7794547015831661,
+      "dud_median": 0.6029818475422017,
+      "cliffs_delta": 0.38636363636363635,
+      "abs_delta": 0.38636363636363635,
+      "printer_vals": [
+        0.5589094031663323,
+        1.0
+      ],
+      "dud_median_n": 22
+    },
+    {
+      "feature": "fresh_wallet_pct",
+      "n_printer": 2,
+      "n_dud": 22,
+      "printer_median": 87.1,
+      "dud_median": 100.0,
+      "cliffs_delta": -0.3409090909090909,
+      "abs_delta": 0.3409090909090909,
+      "printer_vals": [
+        90.9,
+        83.3
+      ],
+      "dud_median_n": 22
+    },
+    {
+      "feature": "migrate_speed",
+      "n_printer": 2,
+      "n_dud": 22,
+      "printer_median": 0.47500000000000003,
+      "dud_median": 0.05,
+      "cliffs_delta": 0.3409090909090909,
+      "abs_delta": 0.3409090909090909,
+      "printer_vals": [
+        0.55,
+        0.4
+      ],
+      "dud_median_n": 22
+    },
+    {
+      "feature": "t0_snap_liq",
+      "n_printer": 2,
+      "n_dud": 22,
+      "printer_median": 67833.55,
+      "dud_median": 0.0,
+      "cliffs_delta": 0.3181818181818182,
+      "abs_delta": 0.3181818181818182,
+      "printer_vals": [
+        0.0,
+        135667.1
+      ],
+      "dud_median_n": 22
+    },
+    {
+      "feature": "time_to_migrate_min",
+      "n_printer": 2,
+      "n_dud": 22,
+      "printer_median": 1.175,
+      "dud_median": 1.7083333333333333,
+      "cliffs_delta": -0.3181818181818182,
+      "abs_delta": 0.3181818181818182,
+      "printer_vals": [
+        2.35,
+        0.0
+      ],
+      "dud_median_n": 22
+    },
+    {
+      "feature": "organic_book",
+      "n_printer": 2,
+      "n_dud": 22,
+      "printer_median": 0.5,
+      "dud_median": 0.0,
+      "cliffs_delta": 0.2727272727272727,
+      "abs_delta": 0.2727272727272727,
+      "printer_vals": [
+        0.0,
+        1.0
+      ],
+      "dud_median_n": 22
+    },
+    {
+      "feature": "creator_prior_rugs",
+      "n_printer": 2,
+      "n_dud": 22,
+      "printer_median": 10.5,
+      "dud_median": 0.0,
+      "cliffs_delta": 0.2727272727272727,
+      "abs_delta": 0.2727272727272727,
+      "printer_vals": [
+        21.0,
+        0.0
+      ],
+      "dud_median_n": 22
+    },
+    {
+      "feature": "creator_win_rate",
+      "n_printer": 2,
+      "n_dud": 22,
+      "printer_median": 0.06060606060606061,
+      "dud_median": 0.0,
+      "cliffs_delta": 0.25,
+      "abs_delta": 0.25,
+      "printer_vals": [
+        0.12121212121212122,
+        0.0
+      ],
+      "dud_median_n": 22
+    },
+    {
+      "feature": "holder_count_entry",
+      "n_printer": 2,
+      "n_dud": 17,
+      "printer_median": 1189.5,
+      "dud_median": 151.0,
+      "cliffs_delta": 0.23529411764705882,
+      "abs_delta": 0.23529411764705882,
+      "printer_vals": [
+        69.0,
+        2310.0
+      ],
+      "dud_median_n": 17
+    },
+    {
+      "feature": "t0_snap_mcap",
+      "n_printer": 2,
+      "n_dud": 22,
+      "printer_median": 880695.32,
+      "dud_median": 49381.87541879396,
+      "cliffs_delta": 0.22727272727272727,
+      "abs_delta": 0.22727272727272727,
+      "printer_vals": [
+        14279.64,
+        1747111.0
+      ],
+      "dud_median_n": 22
+    },
+    {
+      "feature": "buy_pressure",
+      "n_printer": 2,
+      "n_dud": 22,
+      "printer_median": 0.5267383721246249,
+      "dud_median": 0.5033333333333334,
+      "cliffs_delta": -0.22727272727272727,
+      "abs_delta": 0.22727272727272727,
+      "printer_vals": [
+        0.5859375,
+        0.4675392442492499
+      ],
+      "dud_median_n": 22
+    },
+    {
+      "feature": "creator_serial",
+      "n_printer": 2,
+      "n_dud": 22,
+      "printer_median": 0.5,
+      "dud_median": 0.0,
+      "cliffs_delta": 0.22727272727272727,
+      "abs_delta": 0.22727272727272727,
+      "printer_vals": [
+        1.0,
+        0.0
+      ],
+      "dud_median_n": 22
+    },
+    {
+      "feature": "liquidity_n",
+      "n_printer": 2,
+      "n_dud": 22,
+      "printer_median": 0.5,
+      "dud_median": 0.17391169092987774,
+      "cliffs_delta": 0.20454545454545456,
+      "abs_delta": 0.20454545454545456,
+      "printer_vals": [
+        0.0,
+        1.0
+      ],
+      "dud_median_n": 22
+    },
+    {
+      "feature": "meta_heat",
+      "n_printer": 2,
+      "n_dud": 22,
+      "printer_median": 1.0,
+      "dud_median": 1.0,
+      "cliffs_delta": 0.13636363636363635,
+      "abs_delta": 0.13636363636363635,
+      "printer_vals": [
+        1.0,
+        1.0
+      ],
+      "dud_median_n": 22
+    },
+    {
+      "feature": "symbol_flood_n",
+      "n_printer": 2,
+      "n_dud": 22,
+      "printer_median": 0.875,
+      "dud_median": 1.0,
+      "cliffs_delta": 0.13636363636363635,
+      "abs_delta": 0.13636363636363635,
+      "printer_vals": [
+        1.0,
+        0.75
+      ],
+      "dud_median_n": 22
+    },
+    {
+      "feature": "has_honest_early_traj",
+      "n_printer": 2,
+      "n_dud": 22,
+      "printer_median": 0.5,
+      "dud_median": 1.0,
+      "cliffs_delta": -0.13636363636363635,
+      "abs_delta": 0.13636363636363635,
+      "printer_vals": [
+        1.0,
+        0.0
+      ],
+      "dud_median_n": 22
+    },
+    {
+      "feature": "entry_ledger_mcap",
+      "n_printer": 2,
+      "n_dud": 17,
+      "printer_median": 897205.5,
+      "dud_median": 60477.0,
+      "cliffs_delta": 0.11764705882352941,
+      "abs_delta": 0.11764705882352941,
+      "printer_vals": [
+        47300.0,
+        1747111.0
+      ],
+      "dud_median_n": 17
+    },
+    {
+      "feature": "entry_ledger_liq",
+      "n_printer": 2,
+      "n_dud": 17,
+      "printer_median": 76739.0,
+      "dud_median": 20327.0,
+      "cliffs_delta": 0.11764705882352941,
+      "abs_delta": 0.11764705882352941,
+      "printer_vals": [
+        17811.0,
+        135667.0
+      ],
+      "dud_median_n": 17
+    },
+    {
+      "feature": "early_snap_vol_h1",
+      "n_printer": 1,
+      "n_dud": 14,
+      "printer_median": 107824.11,
+      "dud_median": 130273.81,
+      "cliffs_delta": 0.0,
+      "abs_delta": 0.0,
+      "printer_vals": [
+        107824.11
+      ],
+      "dud_median_n": 14
+    },
+    {
+      "feature": "creator_prior_launches",
+      "n_printer": 2,
+      "n_dud": 22,
+      "printer_median": 16.5,
+      "dud_median": 1.0,
+      "cliffs_delta": 0.0,
+      "abs_delta": 0.0,
+      "printer_vals": [
+        33.0,
+        0.0
+      ],
+      "dud_median_n": 22
+    }
+  ],
+  "cohort": [
+    {
+      "label": "adjacent_printer",
+      "symbol": "SI",
+      "name": "Stupid Inu",
+      "mint": "3VPoXaRcXxju8qgkVRN87UuXZxbdBD7zyaXPDqqmpump",
+      "multiple": 77.10273799760267,
+      "rising_book_15m": 1.0,
+      "dump_on_volume": 0.0,
+      "mcap_ratio": 2.845120181692007,
+      "t0_vol": 41709.97,
+      "early_vol": 156379.07,
+      "top10": 42.92,
+      "holders_entry": 271,
+      "serial": 1,
+      "serial_break": 1,
+      "fomo_late_hot": 0,
+      "gate_veto": "copycat spam"
+    },
+    {
+      "label": "dud",
+      "symbol": "SI",
+      "name": "Super Intelligence",
+      "mint": "4UZCTF6XgAKV9gi7oH8EF3cwmSzvq4zGJUaxiJjDpump",
+      "multiple": 1.393877115723713,
+      "rising_book_15m": 0.0,
+      "dump_on_volume": 0.0,
+      "mcap_ratio": 0.8423009470560303,
+      "t0_vol": 0.0,
+      "early_vol": 85065.86,
+      "top10": 100.0,
+      "holders_entry": 151,
+      "serial": 0,
+      "serial_break": null,
+      "fomo_late_hot": 0,
+      "gate_veto": "start-high"
+    },
+    {
+      "label": "dud",
+      "symbol": "SXI",
+      "name": "Super X Inu",
+      "mint": "4y6afgeh9JbeUJrXrVaU4A4uDYxDN6AugnnYwhrapump",
+      "multiple": 3.0881672841588834,
+      "rising_book_15m": 0.0,
+      "dump_on_volume": 0.0,
+      "mcap_ratio": 1.0952169145812378,
+      "t0_vol": 0.0,
+      "early_vol": 253381.68,
+      "top10": 100.0,
+      "holders_entry": 14,
+      "serial": 0,
+      "serial_break": null,
+      "fomo_late_hot": 0,
+      "gate_veto": ""
+    },
+    {
+      "label": "dud",
+      "symbol": "SRI",
+      "name": "Super Retarded Inu",
+      "mint": "5b7xUtsR6SEqwszsSBg5wu9f3o1V6JwUDLkoAxMkpump",
+      "multiple": 2.662723427062594,
+      "rising_book_15m": null,
+      "dump_on_volume": null,
+      "mcap_ratio": null,
+      "t0_vol": 142054.13,
+      "early_vol": null,
+      "top10": 68.86,
+      "holders_entry": 404,
+      "serial": 0,
+      "serial_break": null,
+      "fomo_late_hot": 0,
+      "gate_veto": ""
+    },
+    {
+      "label": "dud",
+      "symbol": ".si",
+      "name": "slop inu",
+      "mint": "6qf9kEhwGzHbX14P98C1QAPW8HcnxSPADkSXeyBMpump",
+      "multiple": 1.885836699646641,
+      "rising_book_15m": 0.0,
+      "dump_on_volume": 1.0,
+      "mcap_ratio": 0.08584431192243823,
+      "t0_vol": 0.0,
+      "early_vol": 185860.21,
+      "top10": 40.49,
+      "holders_entry": 279,
+      "serial": 0,
+      "serial_break": null,
+      "fomo_late_hot": 0,
+      "gate_veto": "copycat spam"
+    },
+    {
+      "label": "dud",
+      "symbol": "Super Inu",
+      "name": "Super Baby Inui",
+      "mint": "7aiGSXK7w1gZ3hoqNydBnLDf9k9d29Yar2A8ByJNpump",
+      "multiple": 1.0,
+      "rising_book_15m": null,
+      "dump_on_volume": null,
+      "mcap_ratio": null,
+      "t0_vol": 2499.7,
+      "early_vol": null,
+      "top10": 99.71,
+      "holders_entry": null,
+      "serial": 1,
+      "serial_break": 0,
+      "fomo_late_hot": 0,
+      "gate_veto": "start-high"
+    },
+    {
+      "label": "dud",
+      "symbol": "SEI",
+      "name": "Super Elon inu",
+      "mint": "7d5xRmFHPdt5r5LW1DrfUsgM57eQyWBG7xS7QrnYpump",
+      "multiple": 2.34360720944315,
+      "rising_book_15m": 1.0,
+      "dump_on_volume": 0.0,
+      "mcap_ratio": 2.041896586297228,
+      "t0_vol": 0.0,
+      "early_vol": 364927.08,
+      "top10": 97.22,
+      "holders_entry": 72,
+      "serial": 0,
+      "serial_break": null,
+      "fomo_late_hot": 0,
+      "gate_veto": ""
+    },
+    {
+      "label": "dud",
+      "symbol": ".si",
+      "name": ".shiba inu",
+      "mint": "8bN9UYNZmps7bTn3iM5RGA9KVaWLotGbYz29vA1spump",
+      "multiple": 1.8026198807686056,
+      "rising_book_15m": 0.0,
+      "dump_on_volume": 1.0,
+      "mcap_ratio": 0.12580206357619972,
+      "t0_vol": 182573.13,
+      "early_vol": 105314.63,
+      "top10": 29.15,
+      "holders_entry": 336,
+      "serial": 1,
+      "serial_break": 0,
+      "fomo_late_hot": 0,
+      "gate_veto": "copycat spam"
+    },
+    {
+      "label": "unknown",
+      "symbol": "SI",
+      "name": "Super Intelligence",
+      "mint": "9LUfP7XmpVxUgcwTaJz9SMHJA1m6t9HJsG558SLapump",
+      "multiple": 8.365507246376811,
+      "rising_book_15m": 0.0,
+      "dump_on_volume": 0.0,
+      "mcap_ratio": 1.1281709404082354,
+      "t0_vol": 0.0,
+      "early_vol": 21710.75,
+      "top10": 100.0,
+      "holders_entry": 20,
+      "serial": 0,
+      "serial_break": null,
+      "fomo_late_hot": 0,
+      "gate_veto": "pre-pumped"
+    },
+    {
+      "label": "dud",
+      "symbol": "SI",
+      "name": "Super Intelligence",
+      "mint": "9TrRDeZv6AmzkQegPmQKzBHVK6LgvznJsS2MBGkrpump",
+      "multiple": 1.0,
+      "rising_book_15m": 0.0,
+      "dump_on_volume": 0.0,
+      "mcap_ratio": 0.11137815908456125,
+      "t0_vol": 0.0,
+      "early_vol": 469.83,
+      "top10": 99.82,
+      "holders_entry": null,
+      "serial": 1,
+      "serial_break": 0,
+      "fomo_late_hot": 0,
+      "gate_veto": "start-high"
+    },
+    {
+      "label": "printer",
+      "symbol": "SI",
+      "name": "Super Intelligence",
+      "mint": "9aqmJjCnnMQv42TXLk921ceUkN35nea2QP969n1caqjj",
+      "multiple": 79.92453623188406,
+      "rising_book_15m": 1.0,
+      "dump_on_volume": 0.0,
+      "mcap_ratio": 8.31148404301509,
+      "t0_vol": 17116.36,
+      "early_vol": 107824.11,
+      "top10": 34.97,
+      "holders_entry": 69,
+      "serial": 1,
+      "serial_break": 1,
+      "fomo_late_hot": 0,
+      "gate_veto": "start-high"
+    },
+    {
+      "label": "dud",
+      "symbol": "GIGAINU",
+      "name": "Super Gigainu",
+      "mint": "AUcLkB7LzvDET6ydcA13iBKbodMZKFuBsbver3ffpump",
+      "multiple": 1.313545275077713,
+      "rising_book_15m": 0.0,
+      "dump_on_volume": 1.0,
+      "mcap_ratio": 0.051837869495866724,
+      "t0_vol": 0.0,
+      "early_vol": 156116.81,
+      "top10": 98.73,
+      "holders_entry": 59,
+      "serial": 0,
+      "serial_break": null,
+      "fomo_late_hot": 0,
+      "gate_veto": ""
+    },
+    {
+      "label": "dud",
+      "symbol": ".si",
+      "name": "slop inu",
+      "mint": "AYvbtMUyx3s1jX5X7JYwdr61xVJUnZJdvJuMgYxpump",
+      "multiple": 1.0,
+      "rising_book_15m": null,
+      "dump_on_volume": null,
+      "mcap_ratio": null,
+      "t0_vol": 61940.82,
+      "early_vol": null,
+      "top10": 76.31,
+      "holders_entry": 145,
+      "serial": 0,
+      "serial_break": null,
+      "fomo_late_hot": 0,
+      "gate_veto": "start-high"
+    },
+    {
+      "label": "unknown",
+      "symbol": "SII",
+      "name": "Super Intelligence Inu",
+      "mint": "BFdFhgZWKpHEvtCRA3R7fQwJfj51kZCk9WR9q3LLpump",
+      "multiple": 9.469941600824459,
+      "rising_book_15m": null,
+      "dump_on_volume": null,
+      "mcap_ratio": null,
+      "t0_vol": 38247.94,
+      "early_vol": null,
+      "top10": 87.71,
+      "holders_entry": 163,
+      "serial": 0,
+      "serial_break": null,
+      "fomo_late_hot": 0,
+      "gate_veto": "copycat spam"
+    },
+    {
+      "label": "dud",
+      "symbol": "SI",
+      "name": "Space INU",
+      "mint": "BV4LfkSf4GQyd4JNv8ATs26uuZqxckk7QjSvuvNNpump",
+      "multiple": 1.0,
+      "rising_book_15m": 0.0,
+      "dump_on_volume": 0.0,
+      "mcap_ratio": 1.7692307692307692,
+      "t0_vol": 64.03,
+      "early_vol": 98.5,
+      "top10": 84.88,
+      "holders_entry": null,
+      "serial": 1,
+      "serial_break": null,
+      "fomo_late_hot": 0,
+      "gate_veto": "start-high"
+    },
+    {
+      "label": "dud",
+      "symbol": "SI",
+      "name": "SI Doge Moon Landing",
+      "mint": "CTgKHGxM3ymEVaxJopJtrx3af57v6Vh7QFqqNoLtpump",
+      "multiple": 0.000782608695652174,
+      "rising_book_15m": null,
+      "dump_on_volume": null,
+      "mcap_ratio": null,
+      "t0_vol": 2.82,
+      "early_vol": null,
+      "top10": 99.41,
+      "holders_entry": null,
+      "serial": 1,
+      "serial_break": 0,
+      "fomo_late_hot": 0,
+      "gate_veto": "start-high"
+    },
+    {
+      "label": "dud",
+      "symbol": "ST",
+      "name": "SuperTrump",
+      "mint": "Cg5zSFi1STRxuEaNLGGnkA37WJqim9p8RR7ixL4zpump",
+      "multiple": 1.456012061816811,
+      "rising_book_15m": null,
+      "dump_on_volume": null,
+      "mcap_ratio": null,
+      "t0_vol": 44543.03,
+      "early_vol": null,
+      "top10": 63.24,
+      "holders_entry": 178,
+      "serial": 0,
+      "serial_break": null,
+      "fomo_late_hot": 0,
+      "gate_veto": "copycat spam"
+    },
+    {
+      "label": "dud",
+      "symbol": "STI",
+      "name": "SuperTrumpInu",
+      "mint": "D9WX1X1nFTBZFjkByufJKxR1F5MQVVDYKAkDeR2gpump",
+      "multiple": 1.3043799657955752,
+      "rising_book_15m": 0.0,
+      "dump_on_volume": 1.0,
+      "mcap_ratio": 0.050671199957912985,
+      "t0_vol": 0.0,
+      "early_vol": 46605.29,
+      "top10": 98.35,
+      "holders_entry": 75,
+      "serial": 0,
+      "serial_break": null,
+      "fomo_late_hot": 0,
+      "gate_veto": ""
+    },
+    {
+      "label": "printer",
+      "symbol": "SI",
+      "name": "Super Inu",
+      "mint": "DEW9dSN6QpWyNthphCpMmAbZP1Q4cEKR9xQXAri98WDP",
+      "multiple": 143.34540144648247,
+      "rising_book_15m": 1.0,
+      "dump_on_volume": 0.0,
+      "mcap_ratio": null,
+      "t0_vol": 2106866.56,
+      "early_vol": null,
+      "top10": 26.36,
+      "holders_entry": 2310,
+      "serial": 0,
+      "serial_break": null,
+      "fomo_late_hot": 1,
+      "gate_veto": "copycat spam"
+    },
+    {
+      "label": "dud",
+      "symbol": "SC",
+      "name": "Super Coin",
+      "mint": "DNsBHDTtw69dKCoMmiuDFndocnRn9q7m2nJPTL4qpump",
+      "multiple": 1.1500165398610651,
+      "rising_book_15m": 0.0,
+      "dump_on_volume": 1.0,
+      "mcap_ratio": 0.26356268607343697,
+      "t0_vol": 33010.9,
+      "early_vol": 203120.47,
+      "top10": 84.66,
+      "holders_entry": 481,
+      "serial": 0,
+      "serial_break": null,
+      "fomo_late_hot": 0,
+      "gate_veto": "copycat spam"
+    },
+    {
+      "label": "dud",
+      "symbol": "SI",
+      "name": "Seinfeld Intelligence",
+      "mint": "DQfR71YP4KEjryG5ptnKSD9D6hDgCDMAwaNMcrRMpump",
+      "multiple": 1.0,
+      "rising_book_15m": 0.0,
+      "dump_on_volume": 0.0,
+      "mcap_ratio": 0.35294117647058826,
+      "t0_vol": 0.88,
+      "early_vol": 2.82,
+      "top10": 98.24,
+      "holders_entry": null,
+      "serial": 1,
+      "serial_break": 0,
+      "fomo_late_hot": 0,
+      "gate_veto": "start-high"
+    },
+    {
+      "label": "dud",
+      "symbol": "SI",
+      "name": "Super Inu",
+      "mint": "DW4QoRhK4tTSETAFcnyBuy4qxoEXfBpDueMfG9Rjpump",
+      "multiple": 1.1229316021404347,
+      "rising_book_15m": 0.0,
+      "dump_on_volume": 0.0,
+      "mcap_ratio": 0.546665073955629,
+      "t0_vol": 0.0,
+      "early_vol": 27513.87,
+      "top10": 23.5,
+      "holders_entry": 2085,
+      "serial": 0,
+      "serial_break": null,
+      "fomo_late_hot": 0,
+      "gate_veto": "start-high"
+    },
+    {
+      "label": "dud",
+      "symbol": "SA",
+      "name": "Super Ansem",
+      "mint": "DgyoA6ogPYzDm1uB3BZETJfkFnAn91tpnYMo6vqMpump",
+      "multiple": 1.8129968963429224,
+      "rising_book_15m": null,
+      "dump_on_volume": null,
+      "mcap_ratio": null,
+      "t0_vol": 69030.5,
+      "early_vol": null,
+      "top10": 41.5,
+      "holders_entry": 208,
+      "serial": 0,
+      "serial_break": null,
+      "fomo_late_hot": 0,
+      "gate_veto": "copycat spam"
+    },
+    {
+      "label": "dud",
+      "symbol": "SI",
+      "name": "Stalker Inu",
+      "mint": "EtTaptdMcgpwUDyqvza55wzmVQ7yuF41wjM99sSxpump",
+      "multiple": 1.2118723930171482,
+      "rising_book_15m": null,
+      "dump_on_volume": null,
+      "mcap_ratio": null,
+      "t0_vol": 358399.69,
+      "early_vol": null,
+      "top10": 25.04,
+      "holders_entry": 772,
+      "serial": 0,
+      "serial_break": null,
+      "fomo_late_hot": 0,
+      "gate_veto": "copycat spam"
+    },
+    {
+      "label": "dud",
+      "symbol": "ASI",
+      "name": "Anonymous Super Inu",
+      "mint": "Ezx3CGiAXzYg2pQpmhckbr45BXy59Snnqc8zGUtmpump",
+      "multiple": 1.0,
+      "rising_book_15m": null,
+      "dump_on_volume": null,
+      "mcap_ratio": null,
+      "t0_vol": 2785.65,
+      "early_vol": null,
+      "top10": 87.39,
+      "holders_entry": 125,
+      "serial": 0,
+      "serial_break": null,
+      "fomo_late_hot": 0,
+      "gate_veto": "copycat spam"
+    },
+    {
+      "label": "dud",
+      "symbol": "SGI",
+      "name": "Super Girl Inu",
+      "mint": "Gt9YZu6Udg7NzPhYBQovHTYtqCAMvUXo3GKkVbKhpump",
+      "multiple": 1.0,
+      "rising_book_15m": 0.0,
+      "dump_on_volume": 1.0,
+      "mcap_ratio": 0.051916878804835996,
+      "t0_vol": 0.0,
+      "early_vol": 155232.99,
+      "top10": 98.7,
+      "holders_entry": 55,
+      "serial": 0,
+      "serial_break": null,
+      "fomo_late_hot": 0,
+      "gate_veto": "copycat spam"
+    },
+    {
+      "label": "dud",
+      "symbol": "SA",
+      "name": "Super Ape",
+      "mint": "XLnE3drovvmQG9zWNk8kbTQy2uPk1y1HspUM4k8pump",
+      "multiple": 1.2418269512709996,
+      "rising_book_15m": 0.0,
+      "dump_on_volume": 1.0,
+      "mcap_ratio": 0.04810409567999994,
+      "t0_vol": 0.0,
+      "early_vol": 273913.33,
+      "top10": 99.26,
+      "holders_entry": 46,
+      "serial": 0,
+      "serial_break": null,
+      "fomo_late_hot": 0,
+      "gate_veto": "copycat spam"
+    }
+  ]
+}

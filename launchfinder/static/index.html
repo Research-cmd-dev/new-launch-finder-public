@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en" data-chain="sol">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Launch Finder · Solana</title>
+  <link rel="stylesheet" href="/static/app.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <div class="mark" aria-hidden="true">LF</div>
+      <div>
+        <p class="eyebrow">Research desk</p>
+        <h1>Launch Finder</h1>
+        <p class="sub">Pump.fun · 5–50× runners · research only, never auto-buy</p>
+      </div>
+    </div>
+    <div class="top-end">
+      <nav class="boards" aria-label="Chain dashboards">
+        <a href="/rh">Robinhood</a>
+        <a href="/" class="on" aria-current="page">Solana</a>
+      </nav>
+      <nav class="boards" aria-label="Desk version">
+        <a href="/" class="on" aria-current="page">Classic</a>
+        <a href="/ui">Test</a>
+      </nav>
+      <span class="chip">Preview</span>
+      <div class="status" id="status">
+        <span class="dot"></span>
+        <span id="status-text">starting scanner…</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="metrics" id="metrics"></section>
+  <section class="runners-strip" id="runners-strip" hidden></section>
+
+  <section class="toolbar">
+    <label>Min score
+      <input type="range" id="min-score" min="0" max="80" value="0" />
+      <b id="min-score-label">0%</b>
+    </label>
+    <label>Sort
+      <select id="sort">
+        <option value="newest">Newest</option>
+        <option value="score">Entry score</option>
+        <option value="runner">Runner potential</option>
+        <option value="mcap">Market cap</option>
+        <option value="multiple">Multiple</option>
+      </select>
+    </label>
+    <label>Search
+      <input class="search" id="search" type="search" placeholder="Ticker, name, mint, or wallet" autocomplete="off" />
+    </label>
+    <label class="check"><input type="checkbox" id="live-only" checked /> Live only</label>
+    <button id="scan">Scan now</button>
+    <span class="hint">Research probabilities, not trade signals. Paper tape only.</span>
+  </section>
+
+  <main>
+    <section>
+      <div class="board-head">
+        <nav class="desk-tabs" aria-label="Desk views">
+          <button type="button" class="on" data-desk="live">Live migrations</button>
+          <button type="button" data-desk="hot">Doing well</button>
+          <button type="button" data-desk="wallets">Wallets</button>
+          <button type="button" data-desk="fomo">FOMO wallets</button>
+          <button type="button" data-desk="early">Early wallets</button>
+        </nav>
+        <span class="muted" id="desk-meta"></span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead id="desk-head">
+            <tr>
+              <th>Token</th>
+              <th>Age</th>
+              <th>Score</th>
+              <th>Runner</th>
+              <th>X</th>
+              <th>Holders</th>
+              <th>Top10</th>
+              <th>Mcap</th>
+              <th>Multiple</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </section>
+    <aside>
+      <article id="detail" class="panel empty">Select a token to see the full research card.</article>
+      <article class="panel">
+        <h3>Model report card</h3>
+        <div id="evaluation" class="muted">Waiting for labeled outcomes…</div>
+        <h4>Calibration <small class="muted">(predicted → actual win rate)</small></h4>
+        <div id="calibration" class="muted">Waiting…</div>
+      </article>
+      <article class="panel">
+        <h3>Paper desk
+          <select id="paper-mode">
+            <option value="moonbag-5-10">moonbag: ½ at 5×, ride to 10×</option>
+            <option value="moonbag-2-10">scale: ½ at 2×, ride to 10×</option>
+            <option value="moonbag-2-5">scale: ½ at 2×, ride to 5×</option>
+            <option value="flat-5">flat: all out at 5×</option>
+          </select>
+        </h3>
+        <div id="paper" class="muted">No positions yet.</div>
+      </article>
+      <article class="panel">
+        <h3>Conviction <small class="muted">(all systems agree)</small></h3>
+        <div id="conviction" class="muted">No Tier A/B tokens right now — that's normal.</div>
+      </article>
+      <article class="panel">
+        <h3>Dev projects <small class="muted">(real GitHub + dev X)</small></h3>
+        <div id="projects" class="muted">None found yet — they're rare.</div>
+      </article>
+      <article class="panel">
+        <h3>Approaching 5× <small class="muted">(2×+ with real holders)</small></h3>
+        <div id="approaching" class="muted">Waiting for climbs…</div>
+      </article>
+      <article class="panel">
+        <h3>Runner watch <small class="muted">(1h/6h trajectory)</small></h3>
+        <div id="runnerwatch" class="muted">Waiting for 1h snapshots…</div>
+      </article>
+      <article class="panel">
+        <h3>Graduating soon <small class="muted">(GMGN trenches)</small></h3>
+        <div id="watch" class="muted">Waiting for near-completion data…</div>
+      </article>
+      <article class="panel">
+        <h3>Reference book</h3>
+        <div id="reference"></div>
+      </article>
+    </aside>
+  </main>
+  <footer class="site-foot">
+    <span>Launch Finder · research terminal · no execution</span>
+    <span>Preview desk — not a paid product yet</span>
+  </footer>
+  <script src="/static/app.js?v=bloom-cycle"></script>
+</body>
+</html>

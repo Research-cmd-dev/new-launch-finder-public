@@ -1,0 +1,41 @@
+# Secrets / local env — never commit
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*credentials*
+*secret*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+
+# Local data / DB
+data/
+*.db
+*.sqlite
+*.sqlite3
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Optional local stamps (image may still ship stamped copies under launchfinder/)
+# launchfinder/.git_sha
+# launchfinder/.deploy_stamp
+
+# Agent / Cursor private
+.agents/
+.cursor/
