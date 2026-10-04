@@ -29,10 +29,25 @@ DECISION_LAG = timedelta(seconds=60)
 LABEL_MARKS = (timedelta(minutes=15), timedelta(hours=1))
 PRODUCTION_MULTIPLE = 5.0
 PRODUCTION_LIQ = 5_000.0
+TIME_SPLIT = 0.70
 
 # Capture is not an arm. There is no flag that lifts a ticket.
 CAPTURES = True
 ENTERS_BUY_PATH = False
+
+FROZEN_FEATURE_KEYS = (
+    "ticker_birth_n",
+    "seconds_since_first",
+    "same_creator",
+    "same_funder",
+    "first_still_above_open",
+    "top10_pct",
+    "bundler_pct",
+    "rat_pct",
+    "dev_sold",
+    "holders",
+    "liq",
+)
 
 
 def normalize_symbol(symbol: str | None) -> str:
@@ -221,3 +236,160 @@ def beats_dumb_rules(
     if len(others) < 2:
         return False
     return float(model_precision) > max(others)
+
+
+def frozen_row(
+    *,
+    chain: str,
+    symbol: str | None,
+    mint: str,
+    seen_at: datetime,
+    migrated_at: datetime,
+    earlier: Iterable[dict[str, Any]],
+    book: dict[str, Any] | None = None,
+    creator: str | None = None,
+    funder: str | None = None,
+    mint_authority_live: bool = False,
+    freeze_authority_live: bool = False,
+    decision_price: float | None = None,
+) -> dict[str, Any]:
+    """One capture row. Join to paper_fills on chain+mint. Does not book."""
+    birth = assign_birth(
+        earlier,
+        chain=chain,
+        symbol=symbol,
+        mint=mint,
+        seen_at=seen_at,
+        creator=creator,
+        funder=funder,
+    )
+    frozen = freeze_clock(birth, book, migrated_at=migrated_at)
+    stops = hard_stops(
+        liq=frozen.get("liq"),
+        mint_authority_live=mint_authority_live,
+        freeze_authority_live=freeze_authority_live,
+        dev_sold=bool(frozen.get("dev_sold")),
+    )
+    return {
+        "chain": str(chain or "").strip().lower(),
+        "symbol": symbol or "",
+        "mint": mint,
+        "cluster_key": birth.get("cluster_key"),
+        "first_mint": birth.get("first_mint"),
+        "window_closes_at": birth.get("window_closes_at"),
+        "decision_price": decision_price,
+        "hard_stops": stops,
+        "label": None,
+        "paper_only": True,
+        "enters_buy_path": ENTERS_BUY_PATH,
+        **frozen,
+    }
+
+
+def attach_label(row: dict[str, Any], **label_kwargs: Any) -> dict[str, Any]:
+    """Write the path label onto a frozen row. Features are not rewritten."""
+    out = dict(row)
+    out["label"] = label_path(**label_kwargs)
+    return out
+
+
+def _decision_at(row: dict[str, Any]) -> datetime:
+    raw = row.get("decision_at")
+    if isinstance(raw, datetime):
+        return _as_utc(raw)
+    if isinstance(raw, str) and raw:
+        return _as_utc(datetime.fromisoformat(raw))
+    return datetime.min.replace(tzinfo=timezone.utc)
+
+
+def _gate(row: dict[str, Any]) -> bool:
+    label = row.get("label") if isinstance(row.get("label"), dict) else {}
+    return bool(label.get("production_gate"))
+
+
+def precision_of(rows: Iterable[dict[str, Any]]) -> float | None:
+    taken = list(rows)
+    if not taken:
+        return 0.0
+    return sum(1 for row in taken if _gate(row)) / len(taken)
+
+
+def buy_first(rows: Iterable[dict[str, Any]]) -> list[dict[str, Any]]:
+    return [row for row in rows if int(row.get("ticker_birth_n") or 0) == 1 and not row.get("hard_stops")]
+
+
+def candidate_score(row: dict[str, Any]) -> float:
+    """Forward-only score. Birth order is a feature, not a veto.
+
+    Later births can outrank the first if the book at +60s is cleaner.
+    Hard stops are excluded before scoring. This is a paper ranker, not a ticket.
+    """
+    if row.get("hard_stops"):
+        return -1.0
+    birth = int(row.get("ticker_birth_n") or 1)
+    holders = float(row.get("holders") or 0.0)
+    liq = float(row.get("liq") or 0.0)
+    top10 = row.get("top10_pct")
+    top10_pen = 0.0 if top10 is None else max(0.0, float(top10) - 40.0) / 100.0
+    bundler = float(row.get("bundler_pct") or 0.0) / 100.0
+    same_funder = 0.35 if row.get("same_funder") else 0.0
+    # Ordinal 4 is allowed. Only the book and funder identity move the score.
+    return (
+        min(holders, 80.0) / 80.0
+        + min(liq, 20_000.0) / 20_000.0
+        - top10_pen
+        - bundler
+        - same_funder
+        - 0.02 * max(0, birth - 1)
+    )
+
+
+def select_score(rows: Iterable[dict[str, Any]], *, min_score: float) -> list[dict[str, Any]]:
+    return [row for row in rows if candidate_score(row) >= min_score]
+
+
+def time_split(rows: Iterable[dict[str, Any]], *, frac: float = TIME_SPLIT) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    ordered = sorted(rows, key=_decision_at)
+    if not ordered:
+        return [], []
+    cut = max(1, int(len(ordered) * frac))
+    if cut >= len(ordered):
+        cut = len(ordered) - 1
+    return ordered[:cut], ordered[cut:]
+
+
+def evaluate_time_split(rows: Iterable[dict[str, Any]]) -> dict[str, Any]:
+    """Holdout precision vs skip-all and buy-first. Does not arm."""
+    train, test = time_split(rows)
+    # Threshold is fit on train only: best score cut by train precision, floored at 0.
+    scores = sorted({round(candidate_score(row), 4) for row in train if candidate_score(row) >= 0})
+    best_cut = 0.0
+    best_prec = -1.0
+    for cut in scores or [0.0]:
+        prec = precision_of(select_score(train, min_score=cut))
+        if prec is not None and prec >= best_prec:
+            best_prec = prec
+            best_cut = cut
+    model_rows = select_score(test, min_score=best_cut)
+    first_rows = buy_first(test)
+    model_p = precision_of(model_rows)
+    skip_p = 0.0
+    first_p = precision_of(first_rows)
+    return {
+        "paper_only": True,
+        "enters_buy_path": False,
+        "n_train": len(train),
+        "n_test": len(test),
+        "threshold": best_cut,
+        "model_precision": model_p,
+        "skip_all_precision": skip_p,
+        "buy_first_precision": first_p,
+        "n_model": len(model_rows),
+        "n_buy_first": len(first_rows),
+        "beats_dumb_rules": beats_dumb_rules(
+            model_precision=model_p,
+            skip_all_precision=skip_p,
+            buy_first_precision=first_p,
+        ),
+        "promote": False,
+    }
